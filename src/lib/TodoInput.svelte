@@ -1,3 +1,5 @@
+<svelte:options tag="todo-input" />
+
 <script lang="ts">
   let inputValue = "";
   export let handleSubmitTodo = (_value: string) => void 0;
@@ -18,6 +20,7 @@
 </script>
 
 <input
+  autofocus
   value={inputValue}
   on:input={handleInputChange}
   on:keydown={(event) => {

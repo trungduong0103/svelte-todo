@@ -1,9 +1,14 @@
-<script lang="ts">
-  import type { ITodo } from "../interfaces/Todo.interface";
+<svelte:options tag="todo-item" />
 
-  export let todo: ITodo;
+<script lang="ts">
+  // import type { ITodo } from "../interfaces/Todo.interface";
+  // export let task: string;
+  // export let completed: boolean;
+  export let todo;
+  console.log(todo);
 </script>
 
 <li>
-  <span>{todo.task}</span>
+  <!-- <span>{task}</span>
+  <spa>Completed? {completed}</spa> -->
 </li>

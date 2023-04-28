@@ -1,3 +1,5 @@
+<svelte:options tag="todo-list" />
+
 <script lang="ts">
   // components
   import TodoInput from "./TodoInput.svelte";
@@ -7,12 +9,16 @@
 
   let todos: ITodo[] = [];
 
-  function addTodo(todo) {
+  function addTodo(todo: ITodo) {
     return [...todos, todo];
   }
 
   function handleSubmitTodo(value: string) {
-    const newTodo = { task: value, completed: false };
+    const newTodo = {
+      id: new Date().getMilliseconds(),
+      task: value,
+      completed: false,
+    };
     todos = addTodo(newTodo);
   }
 </script>
@@ -21,7 +27,7 @@
 <TodoInput {handleSubmitTodo} />
 
 <ul>
-  {#each todos as todo}
+  {#each todos as todo (todo.id)}
     <TodoItem {todo} />
   {/each}
 </ul>
